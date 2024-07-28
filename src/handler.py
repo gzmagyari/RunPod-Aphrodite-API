@@ -59,11 +59,9 @@ async def stream_response(job):
                 async for line in response.content:
                     decoded_line = line.decode('utf-8').strip()
                     if decoded_line.startswith("data: "):
-                        json_data = json.loads(decoded_line[6:])
-                        text = json_data.choices[0].text
-                        yield {"text": text}
+                        yield f"{decoded_line}\n\n"
                     elif decoded_line == "data: [DONE]":
-                        yield {"done": True}
+                        yield "data: [DONE]\n\n"
                         break
 
         except aiohttp.ClientError as e:
