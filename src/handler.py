@@ -77,6 +77,7 @@ async def stream_response(job):
 async def async_generator_handler(job):
     async for output in stream_response(job):
         yield output
+        await asyncio.sleep(0)
 
 if __name__ == "__main__":
     try:
