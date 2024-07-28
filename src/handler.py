@@ -41,7 +41,7 @@ async def stream_response(job):
 
     url = f'{config["baseurl"]}{api_path}'
     params = job["input"].get("params", {})
-    isStream = job["input"].get("stream", False)
+    isStream = params.get("stream", False)
 
     async with aiohttp.ClientSession() as session:
         try:
