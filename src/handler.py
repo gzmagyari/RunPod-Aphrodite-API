@@ -62,14 +62,7 @@ async def stream_response(job):
     for line in response.iter_lines():
         if line:
             decoded_line = line.decode('utf-8')
-            if (decoded_line.startswith("data:")):
-                decoded_line = decoded_line[5:].strip()
-            print("Decoded Line:", decoded_line)
-            print("\n\n")
-            try:
-                yield json.loads(decoded_line)
-            except json.JSONDecodeError:
-                yield {"error": "Invalid JSON response"}
+            yield decoded_line
 
 # ---------------------------------------------------------------------------- #
 #                                RunPod Handler                                #
