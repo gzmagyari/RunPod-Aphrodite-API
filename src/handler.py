@@ -11,7 +11,7 @@ api_session = requests.Session()
 #                               Functions                                      #
 # ---------------------------------------------------------------------------- #
 
-def wait_for_service(url, max_retries=50, delay=0.2):
+def wait_for_service(url, max_retries=1000, delay=0.2):
     retries = 0
     while retries < max_retries:
         try:
