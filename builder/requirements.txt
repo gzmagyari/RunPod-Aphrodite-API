@@ -1,0 +1,6 @@
+# Required Python packages get listed here, one per line.
+# Reccomended to lock the version number to avoid unexpected changes.
+
+# Custom dependencies
+requests-toolbelt==1.0.0
+runpod==1.6.2

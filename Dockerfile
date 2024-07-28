@@ -42,6 +42,16 @@ RUN python3 -m pip install 'flash-attn>=2.5.8' --no-build-isolation
 
 COPY models/blackroot-8B-V1_q8_0.gguf /workspace/models/blackroot-8B-V1_q8_0.gguf
 
+COPY builder/requirements.txt /requirements.txt
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install --upgrade pip && \
+    pip install --upgrade -r /requirements.txt --no-cache-dir && \
+    rm /requirements.txt
+
+RUN apt-get autoremove -y && \
+    apt-get clean -y && \
+    rm -rf /var/lib/apt/lists/*
+
 ADD src /
 
 RUN mkdir -p /workspace/.cache/outlines \
