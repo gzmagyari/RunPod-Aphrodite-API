@@ -89,6 +89,6 @@ if __name__ == "__main__":
     runpod.serverless.start(
         {
             "handler": async_generator_handler,  # Specify the async handler
-            "return_aggregate_stream": False,  # Aggregate results accessible via /run endpoint
+            "return_aggregate_stream": True,  # Aggregate results accessible via /run endpoint
         }
     )
