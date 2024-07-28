@@ -63,6 +63,7 @@ async def stream_response(job):
         if line:
             try:
                 decoded_line = line.decode('utf-8')
+                print("line:", decoded_line)
                 yield json.loads(decoded_line)
             except json.JSONDecodeError as e:
                 yield {"error": f"JSON decode error: {str(e)}"}
