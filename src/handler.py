@@ -1,7 +1,6 @@
 import runpod
 import asyncio
 import aiohttp
-import requests
 import json
 import time
 
@@ -49,8 +48,10 @@ async def stream_response(job):
                 if response.status != 200:
                     yield {"error": await response.text()}
                     return
-                
-                if not isStream:
+
+                content_type = response.headers.get('Content-Type', '')
+
+                if not isStream or 'application/json' in content_type:
                     yield await response.json()
                     return
 
