@@ -44,6 +44,9 @@ COPY models/blackroot-8B-V1_q8_0.gguf /workspace/models/blackroot-8B-V1_q8_0.ggu
 
 ADD src /
 
+RUN mkdir -p /workspace/.cache/outlines \
+    && chown -R 1000:0 /workspace/.cache
+
 RUN chmod +x /start.sh
 
 # Entrypoint exec form doesn't do variable substitution automatically ($HOME)
