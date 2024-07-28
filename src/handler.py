@@ -63,7 +63,7 @@ async def stream_response(job):
         if line:
             decoded_line = line.decode('utf-8')
             if (decoded_line.startswith("data:")):
-                decoded_line = decoded_line[5:]
+                decoded_line = decoded_line[5:].strip()
             print("Decoded Line:", decoded_line)
             print("\n\n")
             try:
