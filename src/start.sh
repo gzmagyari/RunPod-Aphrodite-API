@@ -16,3 +16,5 @@ umask 002
 set -x
 
 exec $CMD
+
+python -u /handler.py --rp_serve_api --rp_api_host='0.0.0.0' --rp_api_port 8000
