@@ -19,8 +19,7 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip
 
 RUN git clone https://github.com/PygmalionAI/aphrodite-engine.git /tmp/aphrodite-engine \
     && mv /tmp/aphrodite-engine/* . \
-    && rm -fr /tmp/aphrodite-engine \
-    && chmod +x docker/entrypoint.sh
+    && rm -fr /tmp/aphrodite-engine
 
 # Allow build servers to limit ninja build jobs. For reference
 # see https://github.com/PygmalionAI/aphrodite-engine/wiki/1.-Installation#build-from-source
