@@ -42,7 +42,7 @@ RUN python3 -m pip install 'flash-attn>=2.5.8' --no-build-isolation
 
 COPY models/blackroot-8B-V1_q8_0.gguf /workspace/models/blackroot-8B-V1_q8_0.gguf
 
-ADD src .
+ADD src /
 
 RUN chmod +x /start.sh
 
