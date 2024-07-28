@@ -23,7 +23,7 @@ RUN git clone https://github.com/PygmalionAI/aphrodite-engine.git /tmp/aphrodite
 
 # Allow build servers to limit ninja build jobs. For reference
 # see https://github.com/PygmalionAI/aphrodite-engine/wiki/1.-Installation#build-from-source
-ARG MAX_JOBS
+ARG MAX_JOBS=4
 ENV MAX_JOBS=${MAX_JOBS}
 
 # Export the CUDA_HOME variable correctly
