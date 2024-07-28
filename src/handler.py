@@ -1,11 +1,9 @@
 import runpod
 import asyncio
+import aiohttp
 import requests
 import json
 import time
-
-# Create a session for the Aphrodite Engine API
-api_session = requests.Session()
 
 # ---------------------------------------------------------------------------- #
 #                               Functions                                      #
@@ -43,31 +41,31 @@ async def stream_response(job):
 
     url = f'{config["baseurl"]}{api_path}'
     params = job["input"].get("params", {})
+    isStream = job["input"].get("stream", False)
 
-    try:
-        response = api_session.post(
-            url=url,
-            json=params,
-            timeout=config["timeout"],
-            stream=True
-        )
-    except requests.exceptions.RequestException as e:
-        yield {"error": str(e)}
-        return
+    async with aiohttp.ClientSession() as session:
+        try:
+            async with session.post(url, json=params, timeout=config["timeout"]) as response:
+                if response.status != 200:
+                    yield {"error": await response.text()}
+                    return
+                
+                if not isStream:
+                    yield await response.json()
+                    return
 
-    if response.status_code != 200:
-        yield {"error": response.text}
-        return
+                async for line in response.content:
+                    decoded_line = line.decode('utf-8').strip()
+                    if decoded_line.startswith("data: "):
+                        yield f"{decoded_line}\n\n"
+                    elif decoded_line == "data: [DONE]":
+                        yield "data: [DONE]\n\n"
+                        break
 
-    for line in response.iter_lines():
-        if line:
-            decoded_line = line.decode('utf-8').strip()
-            if decoded_line.startswith("data: "):
-                yield f"{decoded_line}\n\n"
-            elif decoded_line == "data: [DONE]":
-                yield "data: [DONE]\n\n"
-                break
-            
+        except aiohttp.ClientError as e:
+            yield {"error": str(e)}
+            return
+
 
 # ---------------------------------------------------------------------------- #
 #                                RunPod Handler                                #
@@ -75,7 +73,6 @@ async def stream_response(job):
 async def async_generator_handler(job):
     async for output in stream_response(job):
         yield output
-        await asyncio.sleep(0)
 
 if __name__ == "__main__":
     try:
