@@ -4,7 +4,7 @@
 git pull
 
 # Build the Docker image
-docker build -t runpod-aphrodite-api-br .
+docker build -t aphrodite-api-br .
 
 # Check if the user is logged in to Docker
 if ! docker info >/dev/null 2>&1; then
@@ -14,8 +14,8 @@ else
     echo "Already logged in to Docker"
 fi
 
-IMAGE_TAG="gzmagyari/runpod-aphrodite-api-br:latest"
-docker tag runpod-aphrodite-api-br $IMAGE_TAG
+IMAGE_TAG="gzmagyari/aphrodite-api-br:latest"
+docker tag aphrodite-api-br $IMAGE_TAG
 
 # Push the Docker image to Docker Hub
 docker push $IMAGE_TAG
