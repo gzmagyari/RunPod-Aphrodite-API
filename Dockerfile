@@ -61,7 +61,7 @@ RUN mkdir -p /workspace/.cache/outlines \
 RUN chmod +x /start.sh
 
 # Entrypoint exec form doesn't do variable substitution automatically ($HOME)
-ENTRYPOINT ["bash", "-c", "/start.sh ${RUN_MODE:-}"]
+ENTRYPOINT bash -c "/start.sh $RUN_MODE"
 
 EXPOSE 7860
 
