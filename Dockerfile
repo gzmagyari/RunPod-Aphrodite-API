@@ -61,7 +61,7 @@ RUN chmod +x /start.sh
 
 # Entrypoint exec form doesn't do variable substitution automatically ($HOME)
 ENTRYPOINT ["/start.sh"]
-CMD ["local"]
+CMD ["runpod"]
 
 EXPOSE 7860
 
