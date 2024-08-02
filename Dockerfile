@@ -1,7 +1,6 @@
 FROM nvidia/cuda:12.1.1-devel-ubuntu22.04
 
 ENV HOME=/workspace
-ENV RUN_MODE=""
 
 WORKDIR $HOME
 
@@ -61,7 +60,7 @@ RUN mkdir -p /workspace/.cache/outlines \
 RUN chmod +x /start.sh
 
 # Entrypoint exec form doesn't do variable substitution automatically ($HOME)
-ENTRYPOINT bash -c "/start.sh $RUN_MODE"
+ENTRYPOINT ["/start.sh"]
 
 EXPOSE 7860
 
