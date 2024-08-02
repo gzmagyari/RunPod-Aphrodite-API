@@ -4,6 +4,7 @@ import aiohttp
 import requests
 import json
 import time
+import os
 
 # ---------------------------------------------------------------------------- #
 #                               Functions                                      #
@@ -76,6 +77,10 @@ async def async_generator_handler(job):
     async for output in stream_response(job):
         yield output
 
+def concurrency_modifier():
+    max_concurrency = os.getenv('MAX_CONCURRENCY', 10)
+    return int(max_concurrency)
+
 if __name__ == "__main__":
     try:
         wait_for_service(url='http://127.0.0.1:4444/v1/completions')
@@ -87,7 +92,8 @@ if __name__ == "__main__":
 
     runpod.serverless.start(
         {
-            "handler": async_generator_handler,  # Specify the async handler
-            "return_aggregate_stream": False,  # Aggregate results accessible via /run endpoint
+            "handler": async_generator_handler,
+            "concurrency_modifier": concurrency_modifier,
+            "return_aggregate_stream": False,
         }
     )

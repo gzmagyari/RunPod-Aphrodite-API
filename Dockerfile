@@ -59,6 +59,8 @@ RUN mkdir -p /workspace/.cache/outlines \
 
 RUN chmod +x /start.sh
 
+ENV MAX_CONCURRENCY=10
+
 # Entrypoint exec form doesn't do variable substitution automatically ($HOME)
 ENTRYPOINT ["/start.sh"]
 CMD ["runpod"]
