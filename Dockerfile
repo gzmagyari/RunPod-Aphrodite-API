@@ -1,6 +1,7 @@
 FROM nvidia/cuda:12.1.1-devel-ubuntu22.04
 
 ENV HOME=/workspace
+ENV RUN_MODE=""
 
 WORKDIR $HOME
 
