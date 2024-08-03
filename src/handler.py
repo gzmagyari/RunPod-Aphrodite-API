@@ -77,7 +77,7 @@ async def async_generator_handler(job):
     async for output in stream_response(job):
         yield output
 
-def concurrency_modifier():
+def concurrency_modifier(currenct_concurrency):
     max_concurrency = os.getenv('MAX_CONCURRENCY', 10)
     return int(max_concurrency)
 
