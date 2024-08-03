@@ -94,6 +94,6 @@ if __name__ == "__main__":
         {
             "handler": async_generator_handler,
             "concurrency_modifier": concurrency_modifier,
-            "return_aggregate_stream": False,
+            "return_aggregate_stream": True,
         }
     )
