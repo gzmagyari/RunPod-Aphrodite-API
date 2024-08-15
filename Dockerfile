@@ -21,7 +21,7 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip
 #    && mv /tmp/aphrodite-engine/* . \
 #    && rm -fr /tmp/aphrodite-engine
 
-RUN pip install -U aphrodite-engine --extra-index-url https://downloads.pygmalion.chat/whl
+RUN pip install -U aphrodite-engine@git+https://github.com/PygmalionAI/aphrodite-engine.git@rc_054
 
 # Allow build servers to limit ninja build jobs. For reference
 # see https://github.com/PygmalionAI/aphrodite-engine/wiki/1.-Installation#build-from-source
