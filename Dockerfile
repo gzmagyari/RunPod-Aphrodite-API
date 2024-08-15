@@ -54,10 +54,7 @@ RUN apt-get autoremove -y && \
 
 RUN pip install --upgrade transformers
 
-RUN git clone -b rc_054 https://github.com/PygmalionAI/aphrodite-engine.git && \
-    cd aphrodite-engine && \
-    pip install -e .
-
+RUN pip install -U aphrodite-engine@git+https://github.com/PygmalionAI/aphrodite-engine.git@rc_054
 
 ADD src /
 
