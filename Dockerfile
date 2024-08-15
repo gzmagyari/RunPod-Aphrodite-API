@@ -52,6 +52,8 @@ RUN apt-get autoremove -y && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/*
 
+RUN pip install --upgrade transformers
+
 ADD src /
 
 RUN mkdir -p /workspace/.cache/outlines \
