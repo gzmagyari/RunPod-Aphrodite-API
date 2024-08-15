@@ -15,6 +15,7 @@ if [ "$1" = "local" ]; then
         --port 4444 \
         --model /workspace/models/Llama-3.1-8B-Lexi-Uncensored_V2_Q8.gguf \
         --quantization gguf \
+        --tokenizer meta-llama/Meta-Llama-3.1-8B \
         --served-model-name Llama-3.1-8B-Lexi &
 else
     python3 -m aphrodite.endpoints.openai.api_server \
@@ -22,6 +23,7 @@ else
         --port 4444 \
         --model /workspace/models/Llama-3.1-8B-Lexi-Uncensored_V2_Q8.gguf \
         --quantization gguf \
+        --tokenizer meta-llama/Meta-Llama-3.1-8B \
         --served-model-name Llama-3.1-8B-Lexi &
 fi
 
