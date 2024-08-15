@@ -13,18 +13,18 @@ if [ "$1" = "local" ]; then
     python3 -m aphrodite.endpoints.openai.api_server \
         --host 0.0.0.0 \
         --port 4444 \
-        --model /workspace/models/blackroot-8B-V1_q8_0.gguf \
+        --model /workspace/models/Llama-3.1-8B-Lexi-Uncensored_V2_Q8.gguf \
         --quantization gguf \
-        --tokenizer bluuwhale/L3-SthenoMaidBlackroot-8B-V1 \
-        --served-model-name blackroot-8B-V1 &
+        --tokenizer Orenguteng/Llama-3.1-8B-Lexi-Uncensored-V2-GGUF \
+        --served-model-name Llama-3.1-8B-Lexi &
 else
     python3 -m aphrodite.endpoints.openai.api_server \
         --host 127.0.0.1 \
         --port 4444 \
-        --model /workspace/models/blackroot-8B-V1_q8_0.gguf \
+        --model /workspace/models/Llama-3.1-8B-Lexi-Uncensored_V2_Q8.gguf \
         --quantization gguf \
-        --tokenizer bluuwhale/L3-SthenoMaidBlackroot-8B-V1 \
-        --served-model-name blackroot-8B-V1 &
+        --tokenizer Orenguteng/Llama-3.1-8B-Lexi-Uncensored-V2-GGUF \
+        --served-model-name Llama-3.1-8B-Lexi &
 fi
 
 # Wait for the server to start
