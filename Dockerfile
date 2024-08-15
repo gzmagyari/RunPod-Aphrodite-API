@@ -21,6 +21,16 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip
 #    && mv /tmp/aphrodite-engine/* . \
 #    && rm -fr /tmp/aphrodite-engine
 
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install --upgrade pip && \
+    pip install --upgrade -r /requirements.txt --no-cache-dir && \
+    rm /requirements.txt
+
+
+RUN git clone -b rc_054 https://github.com/PygmalionAI/aphrodite-engine.git && \
+    cd aphrodite-engine && \
+    pip install -e .
+
 # Allow build servers to limit ninja build jobs. For reference
 # see https://github.com/PygmalionAI/aphrodite-engine/wiki/1.-Installation#build-from-source
 ARG MAX_JOBS=32
@@ -49,10 +59,6 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 RUN apt-get autoremove -y && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/*
-
-RUN git clone -b rc_054 https://github.com/PygmalionAI/aphrodite-engine.git && \
-    cd aphrodite-engine && \
-    pip install -e .
 
 RUN pip install --upgrade transformers
 
