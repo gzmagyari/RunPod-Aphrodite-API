@@ -1,2 +1,3 @@
 #!/bin/bash
-sudo docker stop $(sudo docker ps -q)
+sudo docker ps --format "{{.ID}} {{.Image}}" | grep "aphrodite" | awk '{print $1}' | xargs sudo docker stop
+
