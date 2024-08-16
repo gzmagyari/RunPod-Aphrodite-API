@@ -4,7 +4,7 @@
 git pull
 
 # Build the Docker image
-docker build -t aphrodite-api-l3lexi .
+docker build -t aphrodite-api-l3abliterated .
 
 # Check if the user is logged in to Docker
 if ! docker info >/dev/null 2>&1; then
@@ -14,8 +14,8 @@ else
     echo "Already logged in to Docker"
 fi
 
-IMAGE_TAG="gzmagyari/aphrodite-api-l3lexi:latest"
-docker tag aphrodite-api-l3lexi $IMAGE_TAG
+IMAGE_TAG="gzmagyari/aphrodite-api-l3abliterated:latest"
+docker tag aphrodite-api-l3abliterated $IMAGE_TAG
 
 # Push the Docker image to Docker Hub
 docker push $IMAGE_TAG

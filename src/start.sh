@@ -13,16 +13,16 @@ if [ "$1" = "local" ]; then
     python3 -m aphrodite.endpoints.openai.api_server \
         --host 0.0.0.0 \
         --port 4444 \
-        --model /workspace/models/Llama-3.1-8B-Lexi-Uncensored-V2 \
+        --model /workspace/models/Meta-Llama-3.1-8B-Instruct-abliterated \
         --max-model-len 20000 \
-        --served-model-name Llama-3.1-8B-Lexi &
+        --served-model-name Meta-Llama-3.1-8B-Instruct-abliterated &
 else
     python3 -m aphrodite.endpoints.openai.api_server \
         --host 127.0.0.1 \
         --port 4444 \
-        --model /workspace/models/Llama-3.1-8B-Lexi-Uncensored-V2 \
+        --model /workspace/models/Meta-Llama-3.1-8B-Instruct-abliterated \
         --max-model-len 20000 \
-        --served-model-name Llama-3.1-8B-Lexi &
+        --served-model-name Meta-Llama-3.1-8B-Instruct-abliterated &
 fi
 
 # Wait for the server to start

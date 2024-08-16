@@ -54,7 +54,7 @@ RUN pip install --upgrade transformers
 
 RUN pip install -U aphrodite-engine@git+https://github.com/PygmalionAI/aphrodite-engine.git@rc_054
 
-COPY models/Llama-3.1-8B-Lexi-Uncensored-V2 /workspace/models/Llama-3.1-8B-Lexi-Uncensored-V2
+COPY models/Meta-Llama-3.1-8B-Instruct-abliterated /workspace/models/Meta-Llama-3.1-8B-Instruct-abliterated
 
 ADD src /
 
