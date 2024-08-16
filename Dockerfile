@@ -40,7 +40,7 @@ ENV TORCH_CUDA_ARCH_LIST="6.0 6.1 7.0 7.5 8.0 8.6 8.9 9.0+PTX"
 # see: https://github.com/Dao-AILab/flash-attention/issues/453
 RUN python3 -m pip install 'flash-attn>=2.5.8' --no-build-isolation
 
-COPY models/blackroot-8B-V1_q8_0.gguf /workspace/models/blackroot-8B-V1_q8_0.gguf
+COPY models/Meta-Llama-3-70B-Instruct-abliterated-v3.5_q4.gguf /workspace/models/Meta-Llama-3-70B-Instruct-abliterated-v3.5_q4.gguf
 
 COPY builder/requirements.txt /requirements.txt
 RUN --mount=type=cache,target=/root/.cache/pip \
