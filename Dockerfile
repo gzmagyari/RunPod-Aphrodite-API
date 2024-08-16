@@ -40,8 +40,6 @@ ENV TORCH_CUDA_ARCH_LIST="6.0 6.1 7.0 7.5 8.0 8.6 8.9 9.0+PTX"
 # see: https://github.com/Dao-AILab/flash-attention/issues/453
 RUN python3 -m pip install 'flash-attn>=2.5.8' --no-build-isolation
 
-COPY models/Llama-3.1-8B-Lexi-Uncensored_V2_Q8.gguf /workspace/models/Llama-3.1-8B-Lexi-Uncensored_V2_Q8.gguf
-
 COPY builder/requirements.txt /requirements.txt
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install --upgrade pip && \
