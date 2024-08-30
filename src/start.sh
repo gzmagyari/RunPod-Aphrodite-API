@@ -17,7 +17,7 @@ if [ "$1" = "local" ]; then
         --quantization gguf \
         --tokenizer Salesforce/xLAM-1b-fc-r \
         --enforce-eager 0 \
-        --gpu-memory-utilization 0.3 \
+        --gpu-memory-utilization 0.1 \
         --max-model-len 1024 \
         --served-model-name xLAM-1b-fc-r.Q8_0 &
 
@@ -26,6 +26,7 @@ if [ "$1" = "local" ]; then
         --port 4444 \
         --model /workspace/models/blackroot-8B-V1_q8_0.gguf \
         --quantization gguf \
+        --gpu-memory-utilization 0.9 \
         --tokenizer bluuwhale/L3-SthenoMaidBlackroot-8B-V1 \
         --served-model-name blackroot-8B-V1 &
 
@@ -37,7 +38,7 @@ else
         --quantization gguf \
         --tokenizer Salesforce/xLAM-1b-fc-r \
         --enforce-eager 0 \
-        --gpu-memory-utilization 0.3 \
+        --gpu-memory-utilization 0.1 \
         --max-model-len 1024 \
         --served-model-name xLAM-1b-fc-r.Q8_0 &
         
@@ -46,6 +47,7 @@ else
         --port 4444 \
         --model /workspace/models/blackroot-8B-V1_q8_0.gguf \
         --quantization gguf \
+        --gpu-memory-utilization 0.9 \
         --tokenizer bluuwhale/L3-SthenoMaidBlackroot-8B-V1 \
         --served-model-name blackroot-8B-V1 &
 fi
