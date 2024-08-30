@@ -16,6 +16,10 @@ if [ "$1" = "local" ]; then
         --model /workspace/models/xLAM-1b-fc-r/xLAM-1b-fc-r.Q8_0.gguf \
         --quantization gguf \
         --tokenizer Salesforce/xLAM-1b-fc-r \
+        --enforce-eager \
+        --kv-cache-dtype fp8_e5m2 \
+        --gpu-memory-utilization 0.3 \
+        --max-model-len 1024 \
         --served-model-name xLAM-1b-fc-r.Q8_0 &
 
     python3 -m aphrodite.endpoints.openai.api_server \
@@ -33,6 +37,10 @@ else
         --model /workspace/models/xLAM-1b-fc-r/xLAM-1b-fc-r.Q8_0.gguf \
         --quantization gguf \
         --tokenizer Salesforce/xLAM-1b-fc-r \
+        --enforce-eager \
+        --kv-cache-dtype fp8_e5m2 \
+        --gpu-memory-utilization 0.3 \
+        --max-model-len 1024 \
         --served-model-name xLAM-1b-fc-r.Q8_0 &
         
     python3 -m aphrodite.endpoints.openai.api_server \
