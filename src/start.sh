@@ -13,7 +13,7 @@ if [ "$1" = "local" ]; then
     python3 -m aphrodite.endpoints.openai.api_server \
         --host 0.0.0.0 \
         --port 4447 \
-        --model /workspace/models/xLAM-1b-fc-r.Q8_0.gguf \
+        --model /workspace/models/xLAM-1b-fc-r/xLAM-1b-fc-r.Q8_0.gguf \
         --quantization gguf \
         --tokenizer Salesforce/xLAM-1b-fc-r \
         --served-model-name xLAM-1b-fc-r.Q8_0 &
@@ -30,7 +30,7 @@ else
     python3 -m aphrodite.endpoints.openai.api_server \
         --host 127.0.0.1 \
         --port 4447 \
-        --model /workspace/models/xLAM-1b-fc-r.Q8_0.gguf \
+        --model /workspace/models/xLAM-1b-fc-r/xLAM-1b-fc-r.Q8_0.gguf \
         --quantization gguf \
         --tokenizer Salesforce/xLAM-1b-fc-r \
         --served-model-name xLAM-1b-fc-r.Q8_0 &
