@@ -17,7 +17,6 @@ if [ "$1" = "local" ]; then
         --quantization gguf \
         --tokenizer Salesforce/xLAM-1b-fc-r \
         --enforce-eager 1 \
-        --kv-cache-dtype fp8_e5m2 \
         --gpu-memory-utilization 0.3 \
         --max-model-len 1024 \
         --served-model-name xLAM-1b-fc-r.Q8_0 &
@@ -38,7 +37,6 @@ else
         --quantization gguf \
         --tokenizer Salesforce/xLAM-1b-fc-r \
         --enforce-eager 1 \
-        --kv-cache-dtype fp8_e5m2 \
         --gpu-memory-utilization 0.3 \
         --max-model-len 1024 \
         --served-model-name xLAM-1b-fc-r.Q8_0 &
