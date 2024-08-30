@@ -27,6 +27,7 @@ def wait_for_service(url, max_retries=1000, delay=0.2):
 async def stream_response(job):
     config = {
         "baseurl": "http://127.0.0.1:4444",
+        "baseFuncUrl": "http://127.0.0.1:4447",
         "api": {
             "completions": ("POST", "/v1/completions"),
             "chat_completions": ("POST", "/v1/chat/completions")
@@ -43,6 +44,9 @@ async def stream_response(job):
     url = f'{config["baseurl"]}{api_path}'
     params = job["input"].get("params", {})
     isStream = params.get("stream", False)
+    useFuncModel = params.get("useFuncModel", False)
+    if useFuncModel:
+        url = f'{config["baseFuncUrl"]}{api_path}'
 
     async with aiohttp.ClientSession() as session:
         try:
