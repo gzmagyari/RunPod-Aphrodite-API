@@ -13,7 +13,7 @@ if [ "$1" = "local" ]; then
     python3 -m aphrodite.endpoints.openai.api_server \
         --host 0.0.0.0 \
         --port 4447 \
-        --model Salesforce-xLAM-1b-fc-r \
+        --model /workspace/models/Salesforce-xLAM-1b-fc-r \
         --gpu-memory-utilization 0.9 \
         --max-model-len 2048 \
         --served-model-name xLAM-1b-fc-r.Q8_0 &
