@@ -19,14 +19,14 @@ if [ "$1" = "local" ]; then
         --load-in-4bit	\
         --served-model-name xLAM-1b-fc-r.Q8_0 &
 
-    # python3 -m aphrodite.endpoints.openai.api_server \
-    #     --host 0.0.0.0 \
-    #     --port 4444 \
-    #     --model /workspace/models/blackroot-8B-V1_q8_0.gguf \
-    #     --quantization gguf \
-    #     --gpu-memory-utilization 0.7 \
-    #     --tokenizer bluuwhale/L3-SthenoMaidBlackroot-8B-V1 \
-    #     --served-model-name blackroot-8B-V1 &
+    python3 -m aphrodite.endpoints.openai.api_server \
+        --host 0.0.0.0 \
+        --port 4444 \
+        --model /workspace/models/blackroot-8B-V1_q8_0.gguf \
+        --quantization gguf \
+        --gpu-memory-utilization 0.9 \
+        --tokenizer bluuwhale/L3-SthenoMaidBlackroot-8B-V1 \
+        --served-model-name blackroot-8B-V1 &
 
 else
     python3 -m aphrodite.endpoints.openai.api_server \
