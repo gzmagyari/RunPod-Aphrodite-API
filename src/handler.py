@@ -87,7 +87,7 @@ def concurrency_modifier(currenct_concurrency):
 
 if __name__ == "__main__":
     try:
-        wait_for_service(url='http://127.0.0.1:4444/v1/completions')
+        wait_for_service(url='http://127.0.0.1:4447/v1/completions')
     except Exception as e:
         print("Service failed to start:", str(e))
         exit(1)
