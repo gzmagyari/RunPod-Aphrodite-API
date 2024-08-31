@@ -41,7 +41,7 @@ ENV TORCH_CUDA_ARCH_LIST="6.0 6.1 7.0 7.5 8.0 8.6 8.9 9.0+PTX"
 RUN python3 -m pip install 'flash-attn>=2.5.8' --no-build-isolation
 
 COPY models/blackroot-8B-V1_q8_0.gguf /workspace/models/blackroot-8B-V1_q8_0.gguf
-COPY models/xlam-1b-fc-r.gguf /workspace/models/xlam-1b-fc-r.gguf
+COPY models/Salesforce-xLAM-1b-fc-r /workspace/models/Salesforce-xLAM-1b-fc-r
 
 COPY builder/requirements.txt /requirements.txt
 RUN --mount=type=cache,target=/root/.cache/pip \
