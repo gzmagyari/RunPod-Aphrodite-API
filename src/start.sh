@@ -14,7 +14,7 @@ if [ "$1" = "local" ]; then
         --host 0.0.0.0 \
         --port 4447 \
         --model /workspace/models/Salesforce-xLAM-1b-fc-r \
-        --gpu-memory-utilization 0.9 \
+        --gpu-memory-utilization 0.1 \
         --max-model-len 2048 \
         --load-in-4bit	\
         --served-model-name xLAM-1b-fc-r.Q8_0 &
