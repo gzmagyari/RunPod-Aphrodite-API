@@ -15,6 +15,7 @@ if [ "$1" = "local" ]; then
         --port 4447 \
         --model /workspace/models/xlam-1b-fc-r.gguf \
         --quantization gguf \
+        --tokenizer Salesforce/xLAM-1b-fc-r \
         --gpu-memory-utilization 0.9 \
         --max-model-len 2048 \
         --served-model-name xLAM-1b-fc-r.Q8_0 &
