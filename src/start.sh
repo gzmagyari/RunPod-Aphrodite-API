@@ -16,6 +16,7 @@ if [ "$1" = "local" ]; then
         --model /workspace/models/Salesforce-xLAM-1b-fc-r \
         --gpu-memory-utilization 0.9 \
         --max-model-len 2048 \
+        --load-in-4bit	\
         --served-model-name xLAM-1b-fc-r.Q8_0 &
 
     # python3 -m aphrodite.endpoints.openai.api_server \
